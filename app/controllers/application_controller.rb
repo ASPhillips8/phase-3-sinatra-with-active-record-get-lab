@@ -15,4 +15,10 @@ class ApplicationController < Sinatra::Base
     baked_goods = BakedGood.by_price
     baked_goods.to_json
   end
+
+  get '/baked_goods/most_expensive' do
+    most_expensive_good = BakedGood.most_expensive
+    most_expensive_good.to_json
+  end
+
 end
