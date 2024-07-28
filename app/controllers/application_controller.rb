@@ -5,4 +5,10 @@ class ApplicationController < Sinatra::Base
     bakeries = Bakery.all
     bakeries.to_json
   end
+
+  get '/bakeries/:id' do
+    bakery = Bakery.find(params[:id])
+    bakery.to_json(include: :baked_goods)
+
+  end
 end
