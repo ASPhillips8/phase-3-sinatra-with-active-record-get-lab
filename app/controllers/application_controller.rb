@@ -9,6 +9,10 @@ class ApplicationController < Sinatra::Base
   get '/bakeries/:id' do
     bakery = Bakery.find(params[:id])
     bakery.to_json(include: :baked_goods)
+  end
 
+  get '/baked_goods/by_price' do
+    baked_goods = BakedGood.by_price
+    baked_goods.to_json
   end
 end
